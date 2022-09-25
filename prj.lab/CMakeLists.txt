@@ -1,1 +1,1 @@
-add_subdirectory(queuep)
+add_subdirectory(queuer)
