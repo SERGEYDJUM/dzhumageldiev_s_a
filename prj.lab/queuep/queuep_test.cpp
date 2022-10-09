@@ -1,20 +1,20 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest.h>
-#include <queuer/queuer.h>
+#include <queuep/queuep.h>
 #include <vector>
 #include <random>
 
-TEST_CASE("[queuer] - QueueR init") {
-    CHECK_NOTHROW(QueueR());
+TEST_CASE("[queuep] - QueueR init") {
+    CHECK_NOTHROW(QueueP());
 }
 
-TEST_CASE("[queuer] - Pop empty QueueR") {
-    QueueR q{};
+TEST_CASE("[queuep] - Pop empty QueueP") {
+    QueueP q{};
     CHECK_THROWS_AS(q.pop(), std::out_of_range);
 }
 
-TEST_CASE("[queuer] - Usual") {
-    QueueR q{};
+TEST_CASE("[queuep] - Usual") {
+    QueueP q{};
     q.insert(10);
     q.insert(5);
     q.insert(10);
@@ -31,8 +31,8 @@ TEST_CASE("[queuer] - Usual") {
     
 }
 
-TEST_CASE("[queuer] - Stress") {
-    QueueR q{};
+TEST_CASE("[queuep] - Simulate") {
+    QueueP q{};
     std::vector<d_type> v{};
     d_type temp = 0;
 

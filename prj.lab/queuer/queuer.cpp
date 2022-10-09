@@ -2,7 +2,6 @@
 #include "queuer.h"
 
 QueueR::Node::Node(d_type data, Node* next_node) : pri_data{data}, next{next_node} {}
-
 QueueR::Node::~Node() { delete next; }
 
 QueueR::QueueR() {}
