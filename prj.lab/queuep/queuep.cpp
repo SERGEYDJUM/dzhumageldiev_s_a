@@ -7,20 +7,20 @@ QueueP::Node::~Node() {}
 QueueP::QueueP() {}
 QueueP::~QueueP() {}
 
-d_type QueueP::peek() const { return head->pri_data; }
-
-bool QueueP::is_empty() const { return (head == nullptr); }
-
-d_type QueueP::pop() {
-    if (is_empty()) throw std::out_of_range("Nothing to pop");
-    d_type popped_data = head->pri_data;
-    head = std::move(head->next);
-    return popped_data;
+const d_type QueueP::top() const { 
+    if (isEmpty()) throw std::out_of_range("No items in queue!");
+    return head->pri_data; 
 }
 
-void QueueP::insert(d_type data) {
+bool QueueP::isEmpty() const noexcept { return (head == nullptr); }
+
+void QueueP::pop() noexcept {
+    if (!isEmpty()) head = std::move(head->next);
+}
+
+void QueueP::push(d_type data) {
     std::unique_ptr<Node> new_node{ new Node(data) };
-    if (is_empty() || ((head->pri_data) > data)) {
+    if (isEmpty() || ((head->pri_data) > data)) {
         (new_node->next) = std::move(head);
         head = std::move(new_node);
     } else {
