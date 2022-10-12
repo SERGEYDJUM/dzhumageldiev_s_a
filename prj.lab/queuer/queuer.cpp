@@ -7,26 +7,28 @@ QueueR::Node::~Node() { delete next; }
 QueueR::QueueR() {}
 QueueR::~QueueR() { delete head; }
 
-d_type QueueR::peek() const { return head->pri_data; }
-
-bool QueueR::is_empty() const { return (head == nullptr); }
-
-d_type QueueR::pop() {
-    if (is_empty()) throw std::out_of_range("Nothing to pop");
-
-    d_type temp_data = head->pri_data;
-    Node* temp_next = head->next;
-
-    head->next = nullptr;
-    delete head;
-
-    head = temp_next;
-    return temp_data;
+const d_type QueueR::top() const { 
+    if (isEmpty()) throw std::out_of_range("Nothing to pop");
+    return head->pri_data; 
 }
 
-void QueueR::insert(d_type data) {
+bool QueueR::isEmpty() const noexcept { return (head == nullptr); }
+
+void QueueR::pop() noexcept {
+    if (!isEmpty()) {
+        d_type temp_data = head->pri_data;
+        Node* temp_next = head->next;
+
+        head->next = nullptr;
+        delete head;
+
+        head = temp_next;
+    }
+}
+
+void QueueR::push(d_type data) {
     Node* new_node = new Node(data);
-    if (is_empty() || head->pri_data > data) {
+    if (isEmpty() || head->pri_data > data) {
         new_node->next = head;
         head = new_node;
     } else {

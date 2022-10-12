@@ -7,10 +7,10 @@ using d_type = int;
 class QueueR {
    public:
     QueueR();
-    bool is_empty() const;
-    d_type peek() const;
-    void insert(d_type);
-    d_type pop();
+    bool isEmpty() const noexcept;
+    const d_type top() const;
+    void push(d_type);
+    void pop() noexcept;
     ~QueueR();
 
    private:
