@@ -38,8 +38,8 @@ TEST_CASE("[queuep] - Usual") {
 
 TEST_CASE("[queuep] - Simulate") {
     QueueP q{};
-    std::vector<d_type> v{};
-    d_type temp = 0;
+    std::vector<int> v{};
+    int temp = 0;
 
     for (size_t i = 0; i < 10000; i++)
     {

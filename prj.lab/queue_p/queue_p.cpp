@@ -1,14 +1,8 @@
 #include <stdexcept>
-#include "queue_p.hpp"
+#include <queue_p/queue_p.hpp>
 
-QueueP::Node::Node(d_type data) : pri_data{data} {}
-QueueP::Node::~Node() {}
-
-QueueP::QueueP() {}
-QueueP::~QueueP() {}
-
-const d_type QueueP::top() const { 
-    if (isEmpty()) throw std::out_of_range("No items in queue!");
+const int QueueP::top() const { 
+    if (isEmpty()) throw std::out_of_range("No items in queue");
     return head->pri_data; 
 }
 
@@ -18,7 +12,7 @@ void QueueP::pop() noexcept {
     if (!isEmpty()) head = std::move(head->next);
 }
 
-void QueueP::push(d_type data) {
+void QueueP::push(int data) {
     std::unique_ptr<Node> new_node{ new Node(data) };
     if (isEmpty() || ((head->pri_data) > data)) {
         (new_node->next) = std::move(head);

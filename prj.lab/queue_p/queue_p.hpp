@@ -3,23 +3,22 @@
 #define QueueP_H
 #include <memory>
 
-using d_type = int;
-
 class QueueP {
    public:
-    QueueP();
+    QueueP() = default;
     bool isEmpty() const noexcept;
-    const d_type top() const;
-    void push(d_type);
+    const int top() const;
+    void push(int);
     void pop() noexcept;
-    ~QueueP();
+    ~QueueP() = default;
 
    private:
     struct Node {
-        Node(d_type data);
-        d_type pri_data;
-        std::unique_ptr<Node> next = nullptr;  
-        ~Node();  
+        Node(int data) : pri_data{data} {} 
+        ~Node() = default;
+        
+        std::unique_ptr<Node> next = nullptr;
+        int pri_data;
     };
 
     std::unique_ptr<Node> head = nullptr;
