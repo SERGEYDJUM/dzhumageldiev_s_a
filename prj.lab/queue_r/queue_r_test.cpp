@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest.h>
-#include <queuer/queuer.h>
+#include <queue_r/queue_r.hpp>
 #include <vector>
 #include <random>
 
@@ -22,6 +22,7 @@ TEST_CASE("[queuer] - Usual") {
     q.push(10);
     q.push(-1);
 
+    
     CHECK_EQ(q.top(), -1);
     q.pop();
     CHECK_EQ(q.top(), 5);

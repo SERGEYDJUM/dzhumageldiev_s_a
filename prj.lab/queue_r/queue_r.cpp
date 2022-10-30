@@ -1,5 +1,5 @@
 #include <stdexcept>
-#include "queuer.h"
+#include "queue_r.hpp"
 
 QueueR::Node::Node(d_type data, Node* next_node) : pri_data{data}, next{next_node} {}
 QueueR::Node::~Node() { delete next; }

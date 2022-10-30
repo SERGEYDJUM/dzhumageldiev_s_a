@@ -1,2 +1,2 @@
-add_subdirectory(queuer)
-add_subdirectory(queuep)
+add_subdirectory(queue_r)
+add_subdirectory(queue_p)

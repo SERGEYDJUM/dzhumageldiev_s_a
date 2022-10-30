@@ -1,5 +1,5 @@
 #include <stdexcept>
-#include "queuep.h"
+#include "queue_p.hpp"
 
 QueueP::Node::Node(d_type data) : pri_data{data} {}
 QueueP::Node::~Node() {}
