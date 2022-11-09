@@ -47,11 +47,15 @@ TEST_CASE("[queuep] - Simulate") {
         v.push_back(temp);
         q.push(temp);
     }
+    
     std::sort(v.begin(), v.end());
+    QueueP q_1 = q;
     for (auto el : v)
     {
+        CHECK_EQ(q.top(), q_1.top());
         CHECK_EQ(q.top(), el);
         q.pop();
+        q_1.pop();
     }
     CHECK_THROWS(q.top());
 }
